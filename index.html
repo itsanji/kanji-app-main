@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/header-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+    ></script>
+    <title>Learn Kanji App</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div id="home"><a href="index.html">Home</a></div>
+        <ul class="header-nav" id="header-nav">
+          <li><a href="">All Kanji</a></li>
+          <li><a href="flash-card.html">Flash-Card</a></li>
+          <li>
+            <a href="check-kanji.html">Check Kanji Quiz</a>
+          </li>
+        </ul>
+        <div id="burger">
+          <div id="line1"></div>
+          <div id="line2"></div>
+          <div id="line3"></div>
+        </div>
+      </nav>
+    </header>
+    <script>
+      // navigator script
+      const links = document.querySelectorAll(".header-nav li");
+
+      $("#burger").click(() => {
+        links.forEach((link, index) => {
+          if (link.style.animation) {
+            link.style.animation = "";
+          } else {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${
+              index / 7 + 0.5
+            }s`;
+          }
+        });
+        $("#header-nav").toggleClass("nav-activate");
+      });
+    </script>
+    <div id="root">
+      <div id="navigator-container"></div>
+    </div>
+  </body>
+</html>
