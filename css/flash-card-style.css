@@ -99,4 +99,7 @@
   .rotated-p {
     font-size: 3rem;
   }
+  .nav {
+    position: inherit;
+  }
 }
