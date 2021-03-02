@@ -5,7 +5,7 @@ let front = true;
 let words;
 function changeLevel(level) {
   curNum = 1;
-  if (level !== "Choose level") {
+  if (level !== "Chọn cấp độ Kanji") {
     fetch("json/" + level + ".json")
       .then((res) => res.json())
       .then((data) => {
