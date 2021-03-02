@@ -110,9 +110,15 @@ ul li a {
     border-bottom: none;
   }
   .header-nav li:hover {
-    font-size: 1.5rem;
-    transition: 0.25s;
+    font-size: 1.3rem;
+    transition: 0.3s;
   }
+
+  #home a:hover {
+    font-size: 1.55rem;
+    transition: 0.2s;
+  }
+
   .header-nav li {
     opacity: 1;
   }
