@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/flash-card-style.css" />
-    <link rel="stylesheet" href="css/header-style.css" />
+    <link rel="stylesheet" href="css/header-footer-style.css" />
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -17,55 +17,60 @@
     <title>Kanji Flash Card</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <div id="home"><a href="index.html">Home</a></div>
-        <ul class="header-nav" id="header-nav">
-          <li><a href="">All Kanji</a></li>
-          <li><a href="flash-card.html">Flash-Card</a></li>
-          <li>
-            <a href="check-kanji.html">Check Kanji Quiz</a>
-          </li>
-        </ul>
-        <div id="burger">
-          <div id="line1"></div>
-          <div id="line2"></div>
-          <div id="line3"></div>
-        </div>
-      </nav>
-    </header>
-    <script>
-      // navigator script
-      const links = document.querySelectorAll(".header-nav li");
+    <div id="main-container">
+      <header>
+        <nav>
+          <div id="home"><a href="index.html">Home</a></div>
+          <ul class="header-nav" id="header-nav">
+            <li><a href="">All Kanji</a></li>
+            <li><a href="flash-card.html">Flash-Card</a></li>
+            <li>
+              <a href="check-kanji.html">Check Kanji Quiz</a>
+            </li>
+          </ul>
+          <div id="burger">
+            <div id="line1"></div>
+            <div id="line2"></div>
+            <div id="line3"></div>
+          </div>
+        </nav>
+      </header>
+      <script>
+        // navigator script
+        const links = document.querySelectorAll(".header-nav li");
 
-      $("#burger").click(() => {
-        links.forEach((link, index) => {
-          if (link.style.animation) {
-            link.style.animation = "";
-          } else {
-            link.style.animation = `navLinkFade 0.5s ease forwards ${
-              index / 7 + 0.5
-            }s`;
-          }
+        $("#burger").click(() => {
+          links.forEach((link, index) => {
+            if (link.style.animation) {
+              link.style.animation = "";
+            } else {
+              link.style.animation = `navLinkFade 0.5s ease forwards ${
+                index / 7 + 0.5
+              }s`;
+            }
+          });
+          $("#header-nav").toggleClass("nav-activate");
         });
-        $("#header-nav").toggleClass("nav-activate");
-      });
-    </script>
-    <select name="" onchange="changeLevel(this.value)" id="selecter">
-      <option>Choose level</option>
-    </select>
-    <div id="word"></div>
-    <div class="container">
-      <div class="flash-card">
-        <div id="holder">
-          <p class="normal-p"></p>
+      </script>
+      <select name="" onchange="changeLevel(this.value)" id="selecter">
+        <option>Choose level</option>
+      </select>
+      <div id="word"></div>
+      <div class="container">
+        <div class="flash-card">
+          <div id="holder">
+            <p class="normal-p"></p>
+          </div>
         </div>
-      </div>
-      <div class="nav">
-        <button id="left"><</button>
-        <button id="right">></button>
+        <div class="nav">
+          <button id="left"><</button>
+          <button id="right">></button>
+        </div>
       </div>
     </div>
+    <footer>
+      <p>&copy;Bui Van Tuyen 2021</p>
+    </footer>
   </body>
   <script>
     for (let i = 1; i < 10; i++) {

@@ -58,6 +58,12 @@ const errorOutput = (eMessage) => {
 };
 const startTest = (from, to) => {
   $("#checker-zone").css("display", "block");
+  $("html, body").animate(
+    {
+      scrollTop: $("#kanji").offset().top - 70,
+    },
+    "slow"
+  );
   outKanji(from, to);
 };
 

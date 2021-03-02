@@ -7,7 +7,10 @@
 
 body {
   /* width: 100vw; */
+
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* HEADER ***************/
@@ -125,4 +128,22 @@ ul li a {
   #burger {
     display: none;
   }
+}
+
+#main-container {
+  /* width: 100vw;
+  height: 97vh; */
+  min-height: 97vh;
+}
+
+footer {
+  margin-top: 3vh;
+}
+footer p {
+  font-size: 0.5rem;
+  width: 100vw;
+  height: 3vh;
+  background-color: #000;
+  text-align: right;
+  color: #fff;
 }
