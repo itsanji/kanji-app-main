@@ -60,7 +60,7 @@ const startTest = (from, to) => {
   $("#checker-zone").css("display", "block");
   $("html, body").animate(
     {
-      scrollTop: $("#kanji").offset().top - 70,
+      scrollTop: $("#answer-holder").offset().top - 70,
     },
     "slow"
   );

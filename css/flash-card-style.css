@@ -91,7 +91,7 @@
   border-bottom-right-radius: 20px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
   .flash-card {
     width: 70vw;
     height: 40vh;
