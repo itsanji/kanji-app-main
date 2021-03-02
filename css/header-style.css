@@ -35,6 +35,7 @@ nav {
   list-style: none;
   /* display: flex; */
   width: 60%;
+  height: 92%;
   /* display: none; */
   position: absolute;
   top: 7vh;
@@ -98,10 +99,22 @@ ul li a {
 
 @media screen and (min-width: 600px) {
   .header-nav {
-    position: relative;
+    position: inherit;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    height: 100%;
+    transform: translateX(0%);
+  }
+  ul li a {
+    border-bottom: none;
+  }
+  .header-nav li:hover {
+    font-size: 1.5rem;
+    transition: 0.25s;
+  }
+  .header-nav li {
+    opacity: 1;
   }
   #burger {
     display: none;

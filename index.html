@@ -38,6 +38,7 @@
       const links = document.querySelectorAll(".header-nav li");
 
       $("#burger").click(() => {
+        $("#header-nav").toggleClass("nav-activate");
         links.forEach((link, index) => {
           if (link.style.animation) {
             link.style.animation = "";
@@ -47,7 +48,6 @@
             }s`;
           }
         });
-        $("#header-nav").toggleClass("nav-activate");
       });
     </script>
     <div id="root">
