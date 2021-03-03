@@ -54,6 +54,7 @@ li {
   font-weight: bold;
   height: 20%;
   opacity: 0;
+  display: block;
 }
 a {
   text-decoration: none;
