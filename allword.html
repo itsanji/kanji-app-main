@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/header-footer-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/all-kanji.css" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="main-container">
+      <header>
+        <nav>
+          <div id="home"><a href="index.html">Home</a></div>
+          <ul class="header-nav" id="header-nav">
+            <li><a href="">All Kanji</a></li>
+            <li><a href="flash-card.html">Flash-Card</a></li>
+            <li>
+              <a href="check-kanji.html">Check Kanji Quiz</a>
+            </li>
+          </ul>
+          <div id="burger">
+            <div id="line1"></div>
+            <div id="line2"></div>
+            <div id="line3"></div>
+          </div>
+        </nav>
+      </header>
+      <script>
+        // navigator script
+        const links = document.querySelectorAll(".header-nav li");
+
+        $("#burger").click(() => {
+          $("#header-nav").toggleClass("nav-activate");
+          links.forEach((link, index) => {
+            if (link.style.animation) {
+              link.style.animation = "";
+            } else {
+              link.style.animation = `navLinkFade 0.5s ease forwards ${
+                index / 7 + 0.5
+              }s`;
+            }
+          });
+        });
+      </script>
+      <main>
+        <div class="selecter">
+          <select
+            name="select"
+            id="selecter"
+            onchange="changeLevel(this.value)"
+          >
+            <option value="">Chọn cấp độ Kanji</option>
+          </select>
+          <!-- adding level script -->
+
+          <script>
+            for (let i = 1; i < 10; i++) {
+              $("#selecter").append(`<option>${i + "k"}</option>`);
+            }
+          </script>
+        </div>
+
+        <div id="grid-container"></div>
+      </main>
+    </div>
+    <footer>
+      <p>&copy;Bui Van Tuyen 2021</p>
+    </footer>
+  </body>
+  <script src="js/allword.js"></script>
+</html>
