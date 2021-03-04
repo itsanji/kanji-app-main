@@ -2,6 +2,7 @@ let words;
 let numberOfPage = 0;
 const changeLevel = async (level) => {
   if (level !== "Chọn cấp độ Kanji") {
+    $("#grid-container").html("");
     let curPageNumber = 1;
     res = await fetch(`json/${level}.json`);
     data = await res.json();
