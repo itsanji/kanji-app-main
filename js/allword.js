@@ -9,7 +9,6 @@ const changeLevel = async (level) => {
     words = data;
 
     numberOfPage = Math.round(words.length / 50);
-    console.log(words.length, numberOfPage);
 
     for (let i = curPageNumber * 1; i <= curPageNumber * 50; i++) {
       $("#grid-container").append(
