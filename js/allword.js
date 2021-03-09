@@ -1,19 +1,21 @@
 let words;
 let numberOfPage = 0;
-const changeLevel = async (level) => {
+let curPageNumber = 1;
+const changeLevel = (level) => {
   if (level !== "Chọn cấp độ Kanji") {
     $("#grid-container").html("");
-    let curPageNumber = 1;
-    res = await fetch(`json/${level}.json`);
-    data = await res.json();
-    words = data;
+    fetch(`json/${level}.json`)
+      .then((res) => res.json())
+      .then((data) => callback(data));
+  }
+};
 
-    numberOfPage = Math.round(words.length / 50);
+const callback = (words) => {
+  numberOfPage = Math.round(words.length / 50);
 
-    for (let i = curPageNumber * 1; i <= curPageNumber * 50; i++) {
-      $("#grid-container").append(
-        `<div class='inside'><div class="right-after-inside"> <div>${words[i].kanji}</div><div>${words[i].hanViet}</div></div></div>`
-      );
-    }
+  for (let i = curPageNumber * 1; i <= curPageNumber * 50; i++) {
+    $("#grid-container").append(
+      `<div class='inside'><div class="right-after-inside"> <div>${words[i].kanji}</div><div>${words[i].hanViet}</div></div></div>`
+    );
   }
 };
