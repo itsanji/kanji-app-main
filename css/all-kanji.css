@@ -1,9 +1,13 @@
+body {
+  background-color: rgb(240, 236, 206);
+}
 .inside {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin: 10px;
   display: inline-block;
   background-color: rgb(197, 217, 223);
+  border: 3px solid #fff;
   text-align: center;
 }
 .inside > div {
@@ -16,11 +20,13 @@
 }
 .inside > div > div {
   width: 100%;
+  font-size: 0.8rem;
 }
 .inside > div > div:first-child {
   font-size: 1.5rem;
   font-weight: 550;
 }
+
 #grid-container {
   width: 80%;
   height: auto;
@@ -43,7 +49,34 @@ select {
   outline: none;
 }
 
+#page-nav {
+  width: 80vw;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 10vw;
+}
+.nav-btn {
+  cursor: pointer;
+  color: deepskyblue;
+  font-size: 1.25rem;
+  font-weight: 900;
+  width: 50px;
+  height: 25px;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.current-page {
+  color: rgb(255, 255, 255);
+  background: #606d5f;
+  /* text-shadow: 2px 2px 4px #49ff34; */
+}
 @media screen and (max-width: 1024px) {
+  .nav-btn:hover {
+    background: rgb(117, 190, 212);
+    color: #fff;
+  }
   .inside {
     width: 50px;
     height: 50px;
