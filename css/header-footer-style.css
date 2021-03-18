@@ -128,7 +128,7 @@ ul li a {
 #main-container {
   min-height: 97vh;
   width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
 }
 

@@ -22,6 +22,9 @@
   font-weight: 550;
 }
 #grid-container {
+  width: 80%;
+  height: auto;
+  margin: 7vh auto;
 }
 .selecter {
   width: 200px;
@@ -38,4 +41,16 @@ select {
   background-color: antiquewhite;
   border: 1px solid brown;
   outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .inside {
+    width: 50px;
+    height: 50px;
+  }
+
+  .inside > div > div:first-child {
+    font-size: 1.2rem;
+    font-weight: 550;
+  }
 }
