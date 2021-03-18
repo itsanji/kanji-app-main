@@ -74,9 +74,11 @@ select {
   justify-content: space-around;
   position: absolute;
   top: 50%;
-  z-index: -1;
+  pointer-events: none;
 }
-.nav > button {
+.nav > div {
+  pointer-events: all;
+  text-align: center;
   width: 6rem;
   height: 3rem;
   border: none;
@@ -86,15 +88,17 @@ select {
   font-size: 2em;
   border: 2px solid #03256c;
   outline: none;
+  cursor: pointer;
 }
 
 .nav #left {
+  cursor: pointer;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 .nav #right {
-  border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 @media screen and (max-width: 1024px) {

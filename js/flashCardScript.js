@@ -16,6 +16,7 @@ function changeLevel(level) {
       });
   }
 }
+
 const showCard = () => {
   $("#word").html(`<p>${curNum} / ${words.length}</>`);
   showTheWord(curNum, front);
