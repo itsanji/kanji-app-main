@@ -124,10 +124,16 @@ const showScore = (score) => {
 
 const testEnd = () => {
   $("#checker-zone").removeAttr("style");
-  $("#end-test").css("display", "block").append(
-    `<p id="end-score">Your Score: ${curScore}/${numberOfQuestion}</p>
-      <button id="wrong-answer-button"onclick="showWrongAnswer()" >Show All The Wrong Answer</button>
-      `
+  $("#end-test")
+    .css("display", "flex")
+    .append(
+      `<p id="end-score">Điểm Của Bạn: ${curScore}/${numberOfQuestion}</p>`
+    );
+  if (wrongAnswer.length === 0) {
+    return;
+  }
+  $("#end-test").append(
+    `<button id="wrong-answer-button"onclick="showWrongAnswer()" >Các Chữ Đã Sai</button>`
   );
 };
 
