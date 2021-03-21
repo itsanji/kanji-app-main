@@ -7,13 +7,14 @@ let words;
 function changeLevel(level) {
   curNum = 1;
   curLevel = level.split(" ")[1];
-  console.log(curLevel);
   if (level !== "Chọn cấp độ Kanji") {
     fetch("json/" + level + ".json")
       .then((res) => res.json())
       .then((data) => {
         $("#word").css("display", "block");
         $(".container").css("display", "block");
+        // $("#comments").css("display", "block");
+        $("#comments").fadeIn("slow");
         words = data;
         showCard();
       });
@@ -68,12 +69,8 @@ let commentBtnFlag = false;
 $("#comments").click(() => {
   if (!commentBtnFlag) {
     $(".comments-container").css("transform", "translate(0%)");
-    if (!curNum || !curLevel) {
-      $(".comments-container").html("Choose a level or a word first");
-    } else {
-      $(".comments-container").html("Loading...");
-      fetchComment(curLevel, curNum);
-    }
+    $(".comments-container").html("Loading... ");
+    fetchComment(curLevel, curNum);
     commentBtnFlag = true;
   } else {
     $(".comments-container").css("transform", "translate(100%)");
@@ -83,14 +80,16 @@ $("#comments").click(() => {
 
 const fetchComment = (curLevel, curNum) => {
   const table = $("<div></div>");
-  fetch(`http://localhost:5000/api/comments/${curLevel}/${curNum}`)
+  fetch(
+    `https://stark-dusk-52543.herokuapp.com/api/comments/${curLevel}/${curNum}`
+  )
     .then((res) => res.json())
     .then((comments) => {
       console.log(comments);
       comments.forEach((comment) => {
-        table.append(`<p id="user">${comment.user}:
-          ${comment.comment}
-        </p>`);
+        table.append(`<div class="comment-box"><p class="user">${comment.user}:</p>
+          <p class="comment-word">${comment.comment}</p>
+        </div>`);
       });
       $(".comments-container").html(
         `<button id="post-comment" onclick="showForm()">Post Comment</div>`
@@ -113,8 +112,7 @@ const showForm = () => {
 };
 
 const postComment = (curLevel, curNum, userName, comment) => {
-  console.log("I am called");
-  fetch(`http://localhost:5000/api/comments/`, {
+  fetch(`https://stark-dusk-52543.herokuapp.com/api/comments/`, {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -125,7 +123,11 @@ const postComment = (curLevel, curNum, userName, comment) => {
       curNum: curNum,
       comment: comment,
     }),
-  })
-    .then((res) => res.text())
-    .then((text) => console.log(text));
+  }).then((res) => {
+    if (res.status == 200) {
+      setTimeout(fetchComment(curLevel, curNum), 3000);
+    } else {
+      console.log("Post Error");
+    }
+  });
 };

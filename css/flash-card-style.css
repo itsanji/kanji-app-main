@@ -1,5 +1,6 @@
 #comments {
   position: fixed;
+  display: none;
   background-image: url(../favicon/comments.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -23,6 +24,25 @@
   transition: transform 0.5s ease-in;
   background: #dfe2cf;
   z-index: 2;
+}
+.comments-container div:first-child {
+  margin-top: 40px;
+}
+.comment-box {
+  margin: 10px 3%;
+  width: 80%;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 0px 3%;
+  background-color: darkgrey;
+}
+.user {
+  font-weight: 900;
+  color: rgb(84, 84, 167);
+}
+
+.comment-word {
+  color: rgb(247, 235, 243);
 }
 
 #selecter {
