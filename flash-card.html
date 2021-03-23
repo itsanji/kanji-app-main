@@ -54,23 +54,6 @@
           </div>
         </nav>
       </header>
-      <script>
-        // navigator script
-        const links = document.querySelectorAll(".header-nav li");
-
-        $("#burger").click(() => {
-          links.forEach((link, index) => {
-            if (link.style.animation) {
-              link.style.animation = "";
-            } else {
-              link.style.animation = `navLinkFade 0.5s ease forwards ${
-                index / 7 + 0.5
-              }s`;
-            }
-          });
-          $("#header-nav").toggleClass("nav-activate");
-        });
-      </script>
       <select name="" onchange="changeLevel(this.value)" id="selecter">
         <option>Chọn cấp độ Kanji</option>
       </select>
@@ -93,10 +76,6 @@
       <p>&copy;Bui Van Tuyen 2021</p>
     </footer>
   </body>
-  <script>
-    for (let i = 10; i >= 1; i--) {
-      $("#selecter").append(`<option>cấp ${i}</option>`);
-    }
-  </script>
   <script src="js/flashCardScript.js"></script>
+  <script src="js/common.js"></script>
 </html>

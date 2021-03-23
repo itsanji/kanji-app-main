@@ -55,23 +55,7 @@
           </div>
         </nav>
       </header>
-      <script>
-        // navigator script
-        const links = document.querySelectorAll(".header-nav li");
 
-        $("#burger").click(() => {
-          links.forEach((link, index) => {
-            if (link.style.animation) {
-              link.style.animation = "";
-            } else {
-              link.style.animation = `navLinkFade 0.5s ease forwards ${
-                index / 7 + 0.5
-              }s`;
-            }
-          });
-          $("#header-nav").toggleClass("nav-activate");
-        });
-      </script>
       <div class="container">
         <div class="selecter">
           <select
@@ -82,12 +66,6 @@
             <option value="">Chọn cấp độ Kanji</option>
           </select>
           <!-- adding level script -->
-
-          <script>
-            for (let i = 10; i >= 1; i--) {
-              $("#selecter").append(`<option>cấp ${i}</option>`);
-            }
-          </script>
         </div>
         <div id="input-field">
           <p id="error-message"></p>
@@ -124,4 +102,5 @@
     </footer>
   </body>
   <script src="js/checkKanjiScript.js"></script>
+  <script src="js/common.js"></script>
 </html>

@@ -19,10 +19,6 @@
       type="text/javascript"
       src="https://code.jquery.com/jquery-3.3.1.min.js"
     ></script>
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-    ></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -58,23 +54,7 @@
           </div>
         </nav>
       </header>
-      <script>
-        // navigator script
-        const links = document.querySelectorAll(".header-nav li");
 
-        $("#burger").click(() => {
-          $("#header-nav").toggleClass("nav-activate");
-          links.forEach((link, index) => {
-            if (link.style.animation) {
-              link.style.animation = "";
-            } else {
-              link.style.animation = `navLinkFade 0.5s ease forwards ${
-                index / 7 + 0.5
-              }s`;
-            }
-          });
-        });
-      </script>
       <div id="root">
         <div id="navigator-container">
           <div class="btn">
@@ -100,4 +80,5 @@
     </div>
   </body>
   <script src="js/master-script.js"></script>
+  <script src="js/common.js"></script>
 </html>
