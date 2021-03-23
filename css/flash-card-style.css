@@ -47,6 +47,17 @@
   color: rgb(84, 84, 167);
 }
 
+.btn {
+  min-width: 150px;
+  min-height: 30px;
+  background: rgb(66, 80, 80);
+  border: 2px solid #2ecc71;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .comment-word {
   color: rgb(247, 235, 243);
 }

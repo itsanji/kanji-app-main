@@ -92,19 +92,21 @@ const fetchComment = (curLevel, curNum) => {
         </div>`);
       });
       $(".comments-container").html(
-        `<button id="post-comment" onclick="showForm()">Post Comment</div>`
+        `<button id="post-comment" class="btn" onclick="showForm()">Post Comment</div>`
       );
       $(".comments-container").append(table);
     });
 };
 const showForm = () => {
-  $(".comments-container").html(`
+  const commentForm = `
       <form id="post-comment-form">
         <input type="text" id="username"placeholder="UserName">
         <input type="text" id="comment"placeholder="Comment">
-        <input type="submit" value="Comment">
+        <input type="submit" class="btn" value="Comment">
+        <button id="cancel" class="btn">Cancel</button>
       </form>
-    `);
+    `;
+  $(".comments-container").html(commentForm);
   $("#post-comment-form").submit((e) => {
     e.preventDefault();
     postComment(curLevel, curNum, $("#username").val(), $("#comment").val());
