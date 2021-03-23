@@ -11,6 +11,12 @@
   cursor: pointer;
   z-index: 3;
 }
+
+#comments-holder {
+  overflow-y: scroll;
+  height: 70%;
+}
+
 .comments-activate {
   transform: translateX(0%);
 }

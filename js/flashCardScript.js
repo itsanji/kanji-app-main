@@ -79,7 +79,7 @@ $("#comments").click(() => {
 });
 
 const fetchComment = (curLevel, curNum) => {
-  const table = $("<div></div>");
+  const table = $("<div id='comments-holder'></div>");
   fetch(
     `https://stark-dusk-52543.herokuapp.com/api/comments/${curLevel}/${curNum}`
   )
