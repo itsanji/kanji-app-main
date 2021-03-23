@@ -72,9 +72,13 @@ select {
   background: #606d5f;
   /* text-shadow: 2px 2px 4px #49ff34; */
 }
+.nav-btn:hover {
+  background: rgb(117, 190, 212);
+  color: #fff;
+}
 @media screen and (max-width: 1024px) {
   .nav-btn:hover {
-    background: rgb(117, 190, 212);
+    background: #606d5f;
     color: #fff;
   }
   .inside {
