@@ -78,39 +78,25 @@ $("#comments").click(() => {
   }
 });
 
-const fetchComment = (curLevel, curNum) => {
-  const table = $("<div id='comments-holder'></div>");
-  fetch(
-    `https://stark-dusk-52543.herokuapp.com/api/comments/${curLevel}/${curNum}`
-  )
-    .then((res) => res.json())
-    .then((comments) => {
-      console.log(comments);
-      comments.forEach((comment) => {
-        table.append(`<div class="comment-box"><p class="user">${comment.user}:</p>
-          <p class="comment-word">${comment.comment}</p>
-        </div>`);
-      });
-      $(".comments-container").html(
-        `<button id="post-comment" class="btn" onclick="showForm()">Post Comment</div>`
-      );
-      $(".comments-container").append(table);
-    });
-};
 const showForm = () => {
   const commentForm = `
-      <form id="post-comment-form">
-        <input type="text" id="username"placeholder="UserName">
-        <input type="text" id="comment"placeholder="Comment">
-        <input type="submit" class="btn" value="Comment">
-        <button id="cancel" class="btn">Cancel</button>
-      </form>
-    `;
+  <form id="post-comment-form">
+  <input type="text" id="username"autocomplete="off" placeholder="Tên">
+  <input type="text" id="comment" autocomplete="off" placeholder="Bình Luận">
+  <input type="submit" class="btn cmt-btn" value="Bình Luận">
+  <button id="back-btn" class="btn cmt-btn" onclick="goBack()"> Trở Lại </button>
+  </form>
+  `;
   $(".comments-container").html(commentForm);
   $("#post-comment-form").submit((e) => {
     e.preventDefault();
     postComment(curLevel, curNum, $("#username").val(), $("#comment").val());
   });
+};
+
+const goBack = () => {
+  $(".comments-container").html(`Loading...`);
+  fetchComment(curLevel, curNum);
 };
 
 const postComment = (curLevel, curNum, userName, comment) => {
@@ -132,4 +118,37 @@ const postComment = (curLevel, curNum, userName, comment) => {
       console.log("Post Error");
     }
   });
+};
+
+const fetchComment = (curLevel, curNum) => {
+  const table = $("<div id='comments-holder'></div>");
+  fetch(
+    `https://stark-dusk-52543.herokuapp.com/api/comments/${curLevel}/${curNum}`
+  )
+    .then((res) => res.json())
+    .then((comments) => {
+      console.log(comments);
+      if (comments.length === 0) {
+        $(".comments-container").html(
+          `<div id="comments-holder">
+          <div class="comment-box">
+          <p class="user">Admin:</p>
+          <p class="comment-word">Chưa có bình luận nào về chữ này. Hãy là người đầu tiên bình luận </p>
+          </div>
+          </div>
+          <button id="post-comment" class="btn" onclick="showForm()"> Bình Luận </div>`
+        );
+        return;
+      }
+
+      comments.forEach((comment) => {
+        table.append(`<div class="comment-box"><p class="user">${comment.user}:</p>
+          <p class="comment-word">${comment.comment}</p>
+          </div>`);
+        $(".comments-container").html(
+          `<button id="post-comment" class="btn" onclick="showForm()"> Bình Luận </div>`
+        );
+      });
+      $(".comments-container").append(table);
+    });
 };
