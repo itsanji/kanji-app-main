@@ -16,3 +16,11 @@ $("#burger").click(() => {
 for (let i = 10; i >= 1; i--) {
   $("#selecter").append(`<option>cấp ${i}</option>`);
 }
+
+//Color the current page
+let curPath = window.location.pathname.split(".")[0].substring(1);
+links.forEach((link) => {
+  if (link.innerHTML.includes(curPath)) {
+    link.children[0].style.color = "#B8336A";
+  }
+});
