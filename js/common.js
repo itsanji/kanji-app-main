@@ -20,7 +20,7 @@ for (let i = 10; i >= 1; i--) {
 //Color the current page
 let curPath = window.location.pathname.split(".")[0].substring(1);
 links.forEach((link) => {
-  if (link.innerHTML.includes(curPath)) {
+  if (link.innerHTML.includes(curPath) && curPath !== "") {
     link.children[0].style.color = "#B8336A";
   }
 });

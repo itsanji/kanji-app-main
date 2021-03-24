@@ -24,6 +24,7 @@ function changeLevel(level) {
 const showCard = () => {
   $("#word").html(`<p>${curNum} / ${words.length}</>`);
   showTheWord(curNum, front);
+  fetchComment(curLevel, curNum);
 };
 
 $(".flash-card").click(() => {
@@ -69,7 +70,9 @@ let commentBtnFlag = false;
 $("#comments").click(() => {
   if (!commentBtnFlag) {
     $(".comments-container").css("transform", "translate(0%)");
-    $(".comments-container").html("Loading... ");
+    $(".comments-container").html(
+      "Loading... \n Có thể sẽ mất thời gian vào lần đầu tải"
+    );
     fetchComment(curLevel, curNum);
     commentBtnFlag = true;
   } else {
