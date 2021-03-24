@@ -71,7 +71,7 @@ $("#comments").click(() => {
   if (!commentBtnFlag) {
     $(".comments-container").css("transform", "translate(0%)");
     $(".comments-container").html(
-      "Loading... \n Có thể sẽ mất thời gian vào lần đầu tải"
+      "<p>Loading... </p> Có thể sẽ mất thời gian vào lần đầu tải"
     );
     fetchComment(curLevel, curNum);
     commentBtnFlag = true;
